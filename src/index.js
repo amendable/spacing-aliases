@@ -1,50 +1,31 @@
 import shortMiddleware from './shortMiddleware';
 
-const marginX = () => ({
-  match: 'marginX',
-  resolve: ({ key, value }) => ({
-    marginRight: value,
-    marginLeft: value
-  }),
+const defaultAliases = {
+  marginX: ['marginRight', 'marginLeft'],
+  marginY: ['marginBottom', 'marginTop'],
+  paddingX: ['paddingRight', 'paddingLeft'],
+  paddingY: ['paddingBottom', 'paddingTop'],
+}
+
+const aliasesMiddleware = ({ aliases }) => ({
+  match: Object.keys(aliases),
+  resolve: ({ key, value }) => aliases[key].reduce((obj, item) => {
+    obj[item] = value;
+    return obj;
+  }, {}),
 })
 
-const marginY = () => ({
-  match: 'marginY',
-  resolve: ({ key, value }) => ({
-    marginTop: value,
-    marginBottom: value
-  }),
-})
-
-const paddingX = () => ({
-  match: 'paddingX',
-  resolve: ({ key, value }) => ({
-    paddingRight: value,
-    paddingLeft: value
-  }),
-})
-
-const paddingY = () => ({
-  match: 'paddingY',
-  resolve: ({ key, value }) => ({
-    paddingTop: value,
-    paddingBottom: value
-  }),
-})
-
-const spacingAliases = ({ short = true } = {}) => {
+const spacingAliases = ({ short = true, aliases = defaultAliases } = {}) => {
   const list = []
 
   if (short) {
     list.push(shortMiddleware())
   }
 
-  list.push(marginX())
-  list.push(marginY())
-  list.push(paddingX())
-  list.push(paddingY())
+  list.push(aliasesMiddleware({ aliases }))
 
   return list;
 }
 
+export { defaultAliases }
 export default spacingAliases
