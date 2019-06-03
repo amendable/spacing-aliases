@@ -1,4 +1,4 @@
-const shortRegex = /([mp])([xytblr])/;
+const shortRegex = /\A([mp])([xytblr])\z/;
 const replaces = {
   m: 'margin',
   p: 'padding',
