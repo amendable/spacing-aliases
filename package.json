@@ -1,6 +1,6 @@
 {
   "name": "@amendable/spacing-aliases",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "main": "dist/commonjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -15,11 +15,11 @@
   "repository": "amendable/spacing-aliases",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0"
   },
   "scripts": {
