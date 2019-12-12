@@ -7,11 +7,13 @@ This allows you to use shorthand aliases for spacing props (`marginX`, `py`, `pa
 import { render } from 'react-dom'
 import Box, { AmendableProvider } from '@amendable/core'
 import spacingAliases from '@amendable/spacing-aliases'
+import inlineStyles from '@amendable/inline-styles'
 
 render(
   <AmendableProvider
     resolvers={[
       spacingAliases(),
+      inlineStyles()
     ]}
   >
     <Box paddingX={2} paddingY={1} color='white' backgroundColor='black'>
