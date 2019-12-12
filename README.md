@@ -16,7 +16,7 @@ render(
       inlineStyles()
     ]}
   >
-    <Box paddingX={2} paddingY={1} color='white' backgroundColor='black'>
+    <Box paddingX='20px' paddingY='10px' color='white' backgroundColor='black'>
       Padded box
     </Box>
   </AmendableProvider>
